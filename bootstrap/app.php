@@ -79,6 +79,9 @@ $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 // Old Input Değerleri ayarlanıyor.
 $app->add(new \App\Middleware\OldInputMiddleware($container));
 
+// Csrf Middleware ayarlanıyor.
+$app->add(new \App\Middleware\CsrfViewMiddleware($container));
+
 
 // Custom validation ayarlanıyor
 v::with('App\\Validation\\Rules\\');
