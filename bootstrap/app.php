@@ -65,6 +65,14 @@ $container['AuthController'] = function($container){
     return new \App\Controllers\Auth\AuthController($container);
 };
 
+// Csrf aayarlanıyor
+$container['csrf'] = function($container){
+    return new \Slim\Csrf\Guard;
+};
+
+$app->add($container->csrf);
+
+
 // Validation ayarlanıyor.
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 
