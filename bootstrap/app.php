@@ -66,5 +66,8 @@ $container['AuthController'] = function($container){
 // Validation ayarlanıyor.
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 
+// Old Input Değerleri ayarlanıyor.
+$app->add(new \App\Middleware\OldInputMiddleware($container));
+
 require __DIR__ . '/../app/routes.php';
 
