@@ -47,11 +47,15 @@ $container['view'] = function($container){
     return $view;
 };
 
-// controller ayarlanıyor.
+// HomeController ayarlanıyor.
 $container['HomeController'] = function($container){
     return new \App\Controllers\HomeController($container);
 };
 
+// AuthController ayarlanıyor.
+$container['AuthController'] = function($container){
+    return new \App\Controllers\Auth\AuthController($container);
+};
 
 require __DIR__ . '/../app/routes.php';
 
