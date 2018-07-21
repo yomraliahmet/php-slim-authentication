@@ -70,7 +70,7 @@ $container['csrf'] = function($container){
     return new \Slim\Csrf\Guard;
 };
 
-$app->add($container->csrf);
+
 
 
 // Validation ayarlanıyor.
@@ -82,6 +82,8 @@ $app->add(new \App\Middleware\OldInputMiddleware($container));
 // Csrf Middleware ayarlanıyor.
 $app->add(new \App\Middleware\CsrfViewMiddleware($container));
 
+
+$app->add($container->csrf);
 
 // Custom validation ayarlanıyor
 v::with('App\\Validation\\Rules\\');
