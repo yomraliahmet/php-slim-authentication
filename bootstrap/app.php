@@ -7,10 +7,31 @@ require __DIR__ . '/../vendor/autoload.php';
 $app = new \Slim\App([
     'settings' => [
         'displayErrorDetails' => true,
+        'db' => [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'database' => 'slim',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+        ]
     ]
+    
 ]);
 
 $container = $app->getContainer();
+
+$capsule = new \Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container['settings']['db']);
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
+$container['db'] = function($container) use ($capsule){
+    return $capsule;
+};
+
 
 // view ayarlanıyor.
 $container['view'] = function($container){
