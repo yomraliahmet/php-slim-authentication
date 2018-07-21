@@ -41,6 +41,11 @@ $container['auth'] = function($container){
 };
 
 
+// Slim-Flash ayarlanıyor.
+$container['flash'] = function($container){
+    return new \Slim\Flash\Messages;
+};
+
 // view ayarlanıyor.
 $container['view'] = function($container){
     $view = new \Slim\Views\Twig(__DIR__ . '/../resources/views', [
