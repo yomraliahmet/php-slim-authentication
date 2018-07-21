@@ -28,7 +28,7 @@ $container['view'] = function($container){
 
 // controller ayarlanıyor.
 $container['HomeController'] = function($container){
-    return new \App\Controllers\HomeController;
+    return new \App\Controllers\HomeController($container);
 };
 
 
