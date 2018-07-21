@@ -47,6 +47,12 @@ $container['view'] = function($container){
     return $view;
 };
 
+// Validator ayarlanıyor
+$container['validator'] = function($container){
+    return new App\Validation\Validator;
+};
+
+
 // HomeController ayarlanıyor.
 $container['HomeController'] = function($container){
     return new \App\Controllers\HomeController($container);
