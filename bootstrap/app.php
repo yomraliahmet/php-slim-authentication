@@ -1,5 +1,7 @@
 <?php
 
+use Respect\Validation\Validator as v;
+
 session_start();
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -68,6 +70,10 @@ $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 
 // Old Input Değerleri ayarlanıyor.
 $app->add(new \App\Middleware\OldInputMiddleware($container));
+
+
+// Custom validation ayarlanıyor
+v::with('App\\Validation\\Rules\\');
 
 require __DIR__ . '/../app/routes.php';
 
