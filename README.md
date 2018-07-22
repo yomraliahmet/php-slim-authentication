@@ -1,4 +1,4 @@
-# NuSOAP Örneği
+# Slim Framework Örneği
 
 PHP - 7.2 de test edildi çalışıyor.
 
