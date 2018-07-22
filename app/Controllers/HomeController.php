@@ -10,7 +10,6 @@ class HomeController extends Controller
 {
     public function index($request, $response)
     {
-        $this->flash->addMessage('error', 'Test Flash Message');
         return $this->view->render($response,"home.twig");
     }
 }

@@ -28,6 +28,7 @@ class AuthController extends Controller
         );
 
         if(!$auth){
+            $this->flash->addMessage('error', 'Kullanıcı bulunamadı!.');
             return $response->withRedirect($this->router->pathFor('auth.signin'));
         }
 
@@ -62,6 +63,8 @@ class AuthController extends Controller
         $user->password = password_hash($request->getParam('password'), PASSWORD_DEFAULT);
 
         if($user->save()){
+
+            $this->flash->addMessage('info', 'Başarıyla kaydoldunuz');
 
             $this->auth->attempt($user->email, $request->getParam('password'));
 
