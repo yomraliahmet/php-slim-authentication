@@ -3,7 +3,7 @@
       <h5 class="my-0 mr-md-auto font-weight-normal">Slim Framework</h5>
       {% if auth.check %}
         <a class="" href="javascript:return false;">{{ auth.user.name }}</a> &nbsp; 
-        <a class="btn btn-info" href="#">Profile</a> &nbsp; 
+        <a class="btn btn-info" href="{{ path_for('auth.password.change') }}">Profile</a> &nbsp; 
         <a class="btn btn-danger" href="{{ path_for('auth.signout') }}">Sign out</a>
        {% else %}
         <a class="btn btn-primary" href="{{ path_for('auth.signup') }}">Sign up</a> &nbsp; 
